@@ -29,8 +29,7 @@ namespace InvoluntaryBlink
 
         private void Start()
         {
-            // Starting here, you'll have access to OWML's mod helper.
-            ModHelper.Console.WriteLine($"My mod {nameof(InvoluntaryBlink)} is loaded!", MessageType.Success);
+            ModHelper.Console.WriteLine($"Involuntary Blink has loaded!", MessageType.Success);
 
             // Example of accessing game code.
             LoadManager.OnCompleteSceneLoad += (scene, loadScene) =>
