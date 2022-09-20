@@ -27,6 +27,15 @@ namespace InvoluntaryBlink
             }
         }
 
+        private void OldBlink(PlayerCameraEffectController cameraEffectController)
+        {
+            cameraEffectController.CloseEyes(0);
+            GlobalMessenger.FireEvent("PlayerBlink");
+            cameraEffectController.OpenEyes(blinkTime, true);
+            cameraEffectController._wakeLength = 0;
+            cameraEffectController._waitForWakeInput = false;
+        }
+
         private void Start()
         {
             ModHelper.Console.WriteLine($"Involuntary Blink has loaded!", MessageType.Success);
