@@ -13,7 +13,7 @@ namespace InvoluntaryBlink
 
         private IEnumerator RunLoop()
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 3f));
+            yield return new WaitUntil(PlayerBodyExists);
             var cameraEffectController = FindObjectOfType<PlayerCameraEffectController>();
             while (cameraEffectController != null)
             {
@@ -26,6 +26,8 @@ namespace InvoluntaryBlink
                 yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 3f));
             }
         }
+
+        private static bool PlayerBodyExists() => Locator.GetPlayerBody() != null;
 
         private void OldBlink(PlayerCameraEffectController cameraEffectController)
         {
